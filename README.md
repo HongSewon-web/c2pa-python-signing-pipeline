@@ -50,6 +50,15 @@ python verify.py output_signed.jpg image/jpeg
 - Replace `test_cert_chain.pem` / `test_key_chain.pem` with a CA-signed certificate for production use
 - PDF signing is a workaround (c2pa-rs does not yet support native PDF signing)
 
+## ⚠️ Known Limitations & Planned Improvements
+
+- **PDF print edition approach**: This pipeline converts PDF pages to JPEG before signing.
+  - PNG is recommended over JPEG for non-photographic content (e.g. print/architectural documents)
+  - ZIP/EPUB-based packaging is planned as a future improvement
+  - For production use, consider connecting c2pa-rs directly with a PDF library for native PDF signing
+- `signingCredential.untrusted` will appear when using test certificates
+- Replace `test_cert_chain.pem` / `test_key_chain.pem` with a CA-signed certificate for production use
+
 ## Author
 
 Sewon Hong  
